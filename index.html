@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+	<title>hydropatch App Demo</title>
+
+
+	<style>
+		@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+		.material-symbols-outlined {
+			font-variation-settings:
+			'FILL' 0,
+			'wght' 400,
+			'GRAD' 0,
+			'opsz' 48
+		}
+		.material-symbols-rounded {
+			font-variation-settings:
+			'FILL' 1,
+			'wght' 400,
+			'GRAD' 0,
+			'opsz' 48
+		}
+
+		body, html {
+			overflow-x: clip;
+			padding-bottom: 10px;
+			background-color: #312E2E;
+		}
+
+		body * {
+			user-select: none;
+
+		}
+		div#home {
+			background-color: #11202D;
+			width: 340px;
+			height: 610px;
+			padding: 30px 40px;
+			border-radius: 25px;
+		}
+
+		div#login {
+			background: linear-gradient(#24384a, #425769);
+			width: 340px;
+			height: 640px;
+			padding: 30px 40px;
+			border-radius: 25px;
+			z-index: 10000000;
+			position: absolute;
+			top: 9px;
+			font-family: "Gilroy-Bold";
+			color: #F3F3F7;
+			font-size: 25px;
+			transition: opacity 0.6s ease-in-out;
+		}
+
+		div#chipreg {
+			background: linear-gradient(#24384a, #425769);
+			width: 340px;
+			height: 640px;
+			padding: 30px 40px;
+			border-radius: 25px;
+			z-index: 20000000;
+			position: absolute;
+			top: 9px;
+			font-family: "Gilroy-Bold";
+			color: #F3F3F7;
+			font-size: 25px;
+			transition: opacity 0.6s ease-in-out;
+		}
+		div#droplet {
+			background: linear-gradient(#24384a, #425769);
+			width: 340px;
+			height: 640px;
+			padding: 30px 40px;
+			border-radius: 25px;
+			z-index: 20000000;
+			position: absolute;
+			top: 9px;
+			font-family: "Gilroy-Bold";
+			color: #F3F3F7;
+			font-size: 25px;
+			transition: opacity 0.6s ease-in-out;
+		}
+
+		div#notifs {
+			background: linear-gradient(#24384a, #425769);
+			width: 340px;
+			height: 640px;
+			padding: 30px 40px;
+			border-radius: 25px;
+			z-index: 20000000;
+			position: absolute;
+			top: 9px;
+			font-family: "Gilroy-Bold";
+			color: #F3F3F7;
+			font-size: 25px;
+			transition: opacity 0.6s ease-in-out;
+		}
+
+
+		#welc {
+			position: relative;
+			font-family: "Gilroy-Bold";
+			color: #F3F3F7;
+			font-size: 25px;
+			top: 40px;
+			left: -15px;
+		}
+
+		#link {
+			position: absolute;
+			font-family: "Gilroy-Light";
+			font-size: 12px;
+			color: #B9B2E8;
+			top: 20px;
+			left: 310px;
+			background: linear-gradient(#B0A8E73F, #A799DC4F);
+			padding: 2px 8px 4px 8px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		#link span {
+			position: relative;
+			top: 3px;
+		}
+
+
+
+		#shade1 {
+			position: absolute;
+			top: 230px;
+			height: 490px;
+			left: 8px;
+			width: 420px;
+			background: linear-gradient(#24384a, #425769);
+			border-radius: 0 0 25px 25px;
+		}
+
+		.inactive {
+			user-select: none;
+			z-index: -99999;
+			opacity: 0;
+			background-color: rgba(0,0,0,0);
+			pointer-events: none;
+		}
+
+		.inactive2 {
+			user-select: none;
+			z-index: -99999;
+			opacity: 0;
+			background-color: rgba(0,0,0,0);
+			pointer-events: none;
+		}
+
+		.burger {
+			padding: 4px 10px 2px 10px;
+			border-radius: 8px;
+			position: absolute;
+			top: 20px;
+			left: 30px;
+			font-family: "Gilroy-Regular";
+			background-color: #B7C7D53F;
+			color: #B7C7D5;
+			cursor: pointer;
+			user-select: none;
+			transition: background-color 0.5s, color 0.5s;
+		}
+
+		.burger:hover {
+			background-color: #C9D7E34F;
+			color: #CBDCEB;
+		}
+
+		#metVis{
+			--percentage: 0;
+			--fill: #ff0;
+			width: 300px;
+			height: 150px;
+			position: relative;
+			top: 150px;
+			left: 15px;
+			font-size: 40px;
+			font-weight: 600;
+			overflow: hidden;
+			color: var(--fill);
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
+			box-sizing : border-box;
+			font-family: "Gilroy-Bold";
+		}
+
+		#metVis:after{
+			content: '';
+			width: 300px;
+			height: 300px;
+			border:50px solid;
+			border-color: rgba(0,0,0,0.15) rgba(0,0,0,0.15) var(--fill) var(--fill);
+			position: absolute;
+			border-radius: 50%;
+			left: 0;
+			top: 0;
+			box-sizing : border-box;
+			transform: rotate( calc( 1deg * ( -45 + var(--percentage) * 1.8 ) ) );
+			animation : fillAnimation 1.5s ease-in-out;
+		}
+
+		@keyframes fillAnimation {
+			0%{transform : rotate(-45deg);}
+			50%{transform: rotate(110deg);}
+		}
+		#tip {
+			color: #9BAFC0;
+			z-index: 9999;
+			position: relative;
+			font-family: "Gilroy-Light";
+			top: 190px;
+			font-size: 16px;
+
+		}
+
+		#today {
+			font-variant: small-caps;
+			position: relative;
+			color: #677888;
+			font-family: "Gilroy-Bold";
+			top: 240px;
+			left: -30px;
+			width: 110%;
+			height: 160px;
+			background: linear-gradient(#67788845, #70808F3F);
+			padding: 6px 12px;
+			border-radius: 10px;
+		}
+
+		#today em {
+			font-family: "Gilroy-Regular";
+			font-style: normal;
+			font-size: 13px;
+		}
+
+		.prio {
+			z-index: 9999;
+		}
+
+		#num {
+			font-family: "Gilroy-Light";
+			color: #94A3B1;
+		}
+
+		.hor-label {
+			color: #A6C2CB;
+			font-size: 12px;
+			padding-right: 30px;
+		}
+
+		.hor-label strong {
+			padding-right: 1px;
+			font-size: 14px;
+		}
+
+		#hor-labs {
+			position: relative;
+			left: 25px;
+			top: 120px;
+		}
+
+		.vert-label {
+			transform: rotate(-10deg);
+			position: absolute;
+			font-size: 11px;
+			color: #A6C2CB;
+			filter: drop-shadow(2px 2px 10px #535E5FEF);
+		}
+
+		#chat {
+			height: 80px;
+			width: 80px;
+			display: inline-block;
+			position: relative;
+			top: 200px;
+			left: 290px;
+			border-radius: 50%;
+			background: radial-gradient(#7772938F, #7F77A59F);
+			box-shadow: 8px 8px 25px #35304D6F;
+			cursor: pointer;
+			user-select: none;
+		}
+
+
+
+
+
+
+		div#bluetooth-panel {
+			background: linear-gradient(#59547A8F, #59547A7F);
+			box-shadow: #4D49665F 0 0 20px inset;
+			border-radius: 20px 0 0 20px;
+			height: 650px;
+			width: 250px;
+			top:29px;
+			left:179px;
+			position: absolute;
+			z-index: 11000;
+			backdrop-filter: blur(4px);
+			font-family: "Gilroy-Bold";
+			color: #D0D0EC;
+			font-size: 20px;
+			transition: opacity 0.6s ease-in-out;
+		}
+
+		div#menu-panel {
+			background: linear-gradient(#325352AF, #3253529F);
+			box-shadow: #223D3C5F 0 0 20px inset;
+			border-radius: 0 20px 20px 0;
+			height: 650px;
+			width: 250px;
+			top:29px;
+			left:8px;
+			position: absolute;
+			z-index: 11000;
+			backdrop-filter: blur(4px);
+			font-family: "Gilroy-Bold";
+			color: #C3E2E1;
+			font-size: 20px;
+			transition: opacity 0.6s ease-in-out;
+		}
+
+
+		.menu-opt {
+			font-family: "Gilroy-Bold";
+			font-size: 19px;
+			padding: 10px;
+			position: relative;
+			left: 20px;
+			color: #769897;
+			transition: color 0.6s ease-in-out;
+			cursor: pointer;
+		}
+
+		.menu-opt:hover {
+			color: #BAD4D3;
+		}
+
+		.menu-opt:last-child {
+			color: #93B0AF;
+			position: relative;
+			left: 5px;
+		}
+
+		.menu-opt .material-symbols-rounded, .menu-opt .material-symbols-outlined { 
+			position: relative;
+			padding-right: 10px;
+			top: 4px;
+		}
+
+
+		.family {
+			background-color: #5078772F;
+			border-radius: 1px;
+			width: 230px;
+			position: relative;
+			left: 3px;
+			top: 100px;
+			padding: 10px 8px 12px 8px;
+			color: #657D7E;
+			font-family: "Gilroy-Bold";
+			font-size: 17px;
+		}
+
+
+		.fam-member {
+			font-family: "Gilroy-Regular";
+			font-size: 15px;
+			color: #8EACAB;
+			background: linear-gradient(#6489882F, #6489883F);
+			padding: 3px 5px 8px 5px;
+			border-radius: 10px;
+			width: 210px;
+		}
+
+		.fam-member em {
+			font-style: normal;
+			font-size: 10px;
+			position: absolute;
+			color: #6D9493;
+		}
+
+		.fam-member .material-symbols-rounded {
+			position: relative;
+			top: 5px;
+		}
+
+		#bp-label, #menu-label {
+			position: relative;
+			top: 15px;
+			left: 20px;
+		}
+
+		.patch .material-symbols-rounded, .patch .material-symbols-outlined {
+			position: relative;
+			top: 5px;
+			padding-right: 5px;
+		}
+		.patch {
+			padding: 10px 5px;
+			font-family: "Gilroy-Regular";
+			font-size: 15px;
+			position: relative;
+			left: 15px;
+		}
+
+		.patch em {
+			font-style: normal;
+			font-size: 12px;
+			font-family: "Gilroy-Regular";
+			color: #8585AC;
+			padding-left: 5px;
+		}
+
+		.active-patch {
+			background-color: #5081645F;
+			border-radius: 20px;
+			color: #7EAB90;
+			width: 150px;
+			padding: 3px 8px 7px 8px;
+		}
+
+		.active-patch em {
+			color: #558066;
+		}
+
+		div#unfocus {
+			width: 340px;
+			height: 650px;
+			padding: 30px 40px;
+			border-radius: 25px;
+			background-color: #1717179F;
+			z-index: 10000;
+			position: absolute;
+			top: 10px;
+			left: 9px;
+			backdrop-filter: blur(4px);
+			transition: background-color 0.6s ease-in-out, opacity 0.6s ease-in-out;
+		}
+
+
+		#bp-link {
+			font-family: "Gilroy-Regular";
+			font-variant: small-caps;
+			background-color: #7671958F;
+			border-radius: 20px;
+			padding: 5px 15px;
+			width: 120px;
+			color: #8985A6;
+			position: absolute;
+			top: 580px;
+			left: 40px;
+			cursor: pointer;
+			transition: all 0.6s ease-in-out;
+		}
+
+		#bp-link:hover {
+			background-color: #8B85AD8F;
+			color: #A29DC5;
+		}
+
+		#bp-info {
+			font-family: "Gilroy-Light";
+			font-size: 16px;
+			width: 230px;
+			position: relative;
+			left: 10px;
+			top: 290px;
+			color: #8782A8;
+		}
+
+
+
+
+
+
+
+		#login h4 {
+			font-family: "Gilroy-Light";
+		}
+
+		/* Taken from __ */
+
+		.inp {
+			position: relative;
+			width: 180px;
+			border-radius: 10px !important;
+		}
+		.inp .label {
+			position: absolute;
+			top: 0px;
+			left: 12px;
+			font-size: 20px;
+			color: #A08CB38F;
+			font-weight: 500;
+			transform-origin: 0 0;
+			transform: translate3d(0, 0, 0);
+			transition: all 0.2s ease;
+			pointer-events: none;
+		}
+		.inp .focus-bg {
+			position: absolute;
+			top: -25px;
+			left: 0;
+			width: 303px;
+			height: 75px;
+			background-color: #A08CB31F;
+			z-index: -1;
+			border-radius: 18px;
+			transform: scaleX(0);
+			transform-origin: left;
+		}
+		.inp input {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			width: 280px;
+			border-radius: 18px;
+			border: 0;
+			font-family: inherit;
+			padding: 16px 12px 0 12px;
+			height: 56px;
+			font-size: 16px;
+			font-weight: 400;
+			background-color: #A08CB32F;
+			box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+			color: #CEBDDF8F;
+			transition: all 0.15s ease;
+		}
+		.inp input:hover {
+			background-color: #A08CB33F;
+			box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+		}
+		.inp input:not(:-moz-placeholder-shown) + .label {
+			color: #A08CB38F;
+			transform: translate3d(0, -15px, 0) scale(0.75);
+		}
+		.inp input:not(:-ms-input-placeholder) + .label {
+			color: #A08CB38F;
+			transform: translate3d(0, -15px, 0) scale(0.75);
+		}
+		.inp input:not(:placeholder-shown) + .label {
+			color: #A08CB38F;
+			transform: translate3d(0, -15px, 0) scale(0.75);
+		}
+		.inp input:focus {
+			background: #A08CB32F;
+			outline: none;
+			box-shadow: inset 0 -2px 0 #9382A3;
+		}
+		.inp input:focus + .label {
+			color: #9382A3;
+			transform: translate3d(0, -12px, 0) scale(0.75);
+		}
+		.inp input:focus + .label + .focus-bg {
+			transform: scaleX(1);
+			transition: all 0.1s ease;
+		}
+
+
+
+
+
+
+		.inp2 {
+			position: relative;
+			width: 180px;
+			border-radius: 10px !important;
+		}
+		.inp2 .label {
+			position: absolute;
+			top: 0px;
+			left: 12px;
+			font-size: 20px;
+			color: #A08CB38F;
+			font-weight: 500;
+			transform-origin: 0 0;
+			transform: translate3d(0, 0, 0);
+			transition: all 0.2s ease;
+			pointer-events: none;
+		}
+		.inp2 .focus-bg {
+			position: absolute;
+			top: -25px;
+			left: 0;
+			width: 303px;
+			height: 75px;
+			background-color: #A08CB31F;
+			z-index: -1;
+			border-radius: 18px;
+			transform: scaleX(0);
+			transform-origin: left;
+		}
+		.inp2 input {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			width: 280px;
+			border-radius: 18px;
+			border: 0;
+			font-family: inherit;
+			padding: 16px 12px 0 12px;
+			height: 56px;
+			font-size: 16px;
+			font-weight: 400;
+			background-color: #A08CB32F;
+			box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+			color: #CEBDDF8F;
+			transition: all 0.15s ease;
+		}
+		.inp2 input:hover {
+			background-color: #A08CB33F;
+			box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+		}
+		.inp2 input:not(:-moz-placeholder-shown) + .label {
+			color: #A08CB38F;
+			transform: translate3d(0, -15px, 0) scale(0.75);
+		}
+		.inp2 input:not(:-ms-input-placeholder) + .label {
+			color: #A08CB38F;
+			transform: translate3d(0, -15px, 0) scale(0.75);
+		}
+		.inp2 input:not(:placeholder-shown) + .label {
+			color: #A08CB38F;
+			transform: translate3d(0, -15px, 0) scale(0.75);
+		}
+		.inp2 input:focus {
+			background: #A08CB32F;
+			outline: none;
+			box-shadow: inset 0 -2px 0 #9382A3;
+		}
+		.inp2 input:focus + .label {
+			color: #9382A3;
+			transform: translate3d(0, -12px, 0) scale(0.75);
+		}
+		.inp2 input:focus + .label + .focus-bg {
+			transform: scaleX(1);
+			transition: all 0.1s ease;
+		}
+
+
+
+		#continue {
+			padding: 40px 0 10px 0;
+		}
+
+		#cont-btn {
+			border-radius: 10px;
+			padding: 8px 12px;
+			background-color: #72AAA779;
+			text-align: center;
+			color: #92C0BE;
+			position: relative;
+			top: -20px;
+			cursor: pointer;
+		}
+
+		#signup {
+			font-size: 15px;
+			color: #DCE2E9;
+			font-family: "Gilroy-Light";
+			position: relative;
+			top: -300px;
+			left: 150px;
+		}
+
+		#signup a {
+			color: #94CEEC;
+		}
+
+
+		#cr-desc {
+			font-family: "Gilroy-Light";
+			font-size: 14px;
+		}
+
+		div#dr-title {
+			position:relative;
+			left: 50px;
+		}
+
+		div#dr-title .material-symbols-outlined {
+			position:relative;
+			top:3px;
+			padding-right:5px;
+		}
+
+
+		#monthly, #trimonthly {
+			position: relative;
+			top: 50px;
+			background: linear-gradient(#D2B0F43F, #D2B0F44F);
+			border-radius: 20px;
+			padding: 6px 12px 0px 12px;
+		}
+
+		#trimonthly {
+			background: linear-gradient(#B0B5F43F, #B0B5F44F);
+		}
+
+		#monthly em, #trimonthly em {
+			font-style: normal;
+			font-size: 15px;
+			color: #C3B3D3;
+			font-family: "Gilroy-Bold";
+			padding-bottom: 5px;
+			position: relative;
+		}
+
+		#trimonthly em {
+			color: #B3BBD3;
+		}
+		#monthly .material-symbols-outlined {
+			position: relative;
+			left: -5px;
+			top: 7px;
+		}
+
+		#trimonthly .material-symbols-outlined {
+			position: relative;
+			left: -5px;
+			top: 7px;
+		}
+
+		#monthly h3, #trimonthly h3 {
+			background-color: #D2B0F43F;
+			padding: 8px 12px 0 12px;
+			border-radius: 10px;
+			width: 100px;
+			font-size: 24px;
+			color: #C8B5DB;
+		}
+
+		#trimonthly h3 {
+			background-color: #B0B5F43F;
+			color: #BED3F2;
+		}
+
+
+
+		.notif {
+			font-family: "Gilroy-Regular";
+			font-size: 16px;
+			padding: 8px 12px 12px 12px;
+			margin-bottom: 40px;
+			background: linear-gradient(#B0B5F43F, #B0B5F44F);
+			border-radius: 15px;
+			color: #C9CCEB;
+		}
+
+		.notif .material-symbols-rounded {
+			position: relative;
+			top: 5px;
+			left: -3px;
+		}
+
+		.notif-time {
+			position: relative;
+			font-size: 10px;
+
+		}
+
+		.urgent {
+			color: #F4C7D2;
+			background: linear-gradient(#E180974F, #E180975F);
+		}
+
+		.disabled {
+			color: #627D7C;
+			cursor: auto;
+		}
+
+		.disabled:hover {
+			color: #627D7C;
+		}
+
+
+		.batt {
+			position: absolute;
+			font-family: "Gilroy-Light";
+			font-size: 10px;
+		}
+
+		.batt .material-symbols-outlined {
+			position: relative;
+			top: 7px;
+			left: 6px;
+		}
+
+		div#connected {
+			background: linear-gradient(#80B7974F, #80B7975F);
+			color: #A9E1C0;
+			padding: 20px 30px;
+			border-radius: 50px;
+			font-size: 20px;
+			width: 200px;
+			cursor: pointer;
+		}
+
+
+
+		div#unconnected {
+			background: linear-gradient(#C2BFCB3F, #C2BFCB4F);
+			color: #E5E3EA;
+			padding: 20px 30px;
+			border-radius: 50px;
+			font-size: 20px;
+			width: 200px;
+		}
+
+		div#unconnected em, div#connected em{
+			font-style: normal;
+			position: relative;
+			top: -3px;
+			left: 10px;
+		}
+
+		#return {
+			position: absolute;
+			top: 40px;
+			left: 25px;
+		}
+
+		div.gr-line {
+			width: 350px;
+			height: 1.2px;
+			position: absolute;
+			background-color: #5B6F81;
+		}
+	</style>
+</head>
+<body onload="nerfdragging()">
+	<div id="unfocus" class="inactive" style="z-index:9999999999" onclick="hide('menu-panel', 'bluetooth-panel')"></div>
+	<div id="menu-panel" class="inactive" style="z-index:99999999999"><span id="menu-label">How can we help?</span><br><br>
+		<div class="menu-opt" onclick="swap('home')"><span class="material-symbols-rounded">home</span>Home</div>
+		<div class="menu-opt" onclick="swap('notifs')"><span class="material-symbols-rounded">notifications_active</span>Notifications</div>
+		<div class="menu-opt disabled"><span class="material-symbols-rounded">overview</span>Logs</div>
+		<div class="menu-opt disabled"><span class="material-symbols-rounded">newspaper</span>Blog</div>
+		<div class="menu-opt" onclick="swap('droplet')"><span class="material-symbols-rounded">package</span>Droplet</div>
+
+		<div class="family">Manage Family<div style="height:20px"></div><div class="fam-member" style="margin-bottom: 10px;"><span class="material-symbols-rounded">person</span>Jim Jubreck<em style="position:relative; left:30px; top:-10px;">HP UK110N30</em></div> <!-- patch active dot -->
+		<div class="fam-member"><span class="material-symbols-rounded">person</span>Ana Kyekvich<em style="position:relative; left:24px; top: -10px">HP EZ103D34</em></div></div>
+		<br><br><br><br><br>
+		<div class="menu-opt" onclick="swap('login')"><span class="material-symbols-outlined">logout</span>Logout</div>
+	</div>
+
+	<div id="home" class="inactive">
+		<span id="link" onclick="reveal('bluetooth-panel')"><span class="material-symbols-outlined" style="font-size: 15px">
+			bluetooth_connected
+		</span>&nbsp;HP EZ103D34</span>
+		<!--<div class="notif urgent" style="position:absolute;top:50px;left:10px;z-index:9999;background:linear-gradient(#B95D72DF, #B95D72EF)"><span class="notif-time">6/20/23, 3:03 PM</span><br><span class="material-symbols-rounded">crisis_alert</span>Jim Jubreck is calling for emergency assistance.</div>-->
+		<div id="welc">Good morning, Ana</div>
+		<img src="https://hydropatch-demo.s3.us-east-2.amazonaws.com/wave.svg" style="filter: top:70px; width:420px; left:8px; position:absolute;user-select:none">
+		<div id="shade1"></div>
+		<div class="burger" onclick="reveal('menu-panel')"><span class="material-symbols-outlined" style="font-size: 24px">
+			menu
+		</span></div>
+		<div id="meter"><div id="metVis" style="--percentage: 82; --fill: #AEC3E6;"><span style="color: #C1D2EE">82%</span></div></div>
+
+		<div id="tip" class="prio">You're a little dehydrated. Drink more water to avoid any adversive effects.</div>
+		<div id="today" class="prio">TODAY<!-- <em>6/21/2023</em>--><br>
+			<div id="num">
+				<div class="gr-line" style="left: 35px; top: 45px"></div>
+				<div class="gr-line" style="left: 35px; top: 85px"></div>
+				<div class="gr-line" style="left: 35px; top: 125px"></div>
+				<img src="https://hydropatch-demo.s3.us-east-2.amazonaws.com/graph.png" style="position:absolute;width:398px;left:-1px;top:15px;border-radius: 0 0 10px 10px">
+				<div id="vert-labs" style="position:relative;left:-5px;top:-35px">
+					<div class="vert-label" style="top:130px">0</div>					
+					<!--<div class="vert-label" style="top:110px">25</div>-->	
+					<div class="vert-label" style="top:90px">50</div>
+					<!--<div class="vert-label" style="top:70px">75</div>-->				
+					<div class="vert-label" style="top:50px">100</div>
+				</div>
+				<div id="hor-labs">
+					<span class="hor-label"><strong>8</strong>am</span>
+					<span class="hor-label"><strong>9</strong>am</span>
+					<span class="hor-label"><strong>10</strong>am</span>
+					<span class="hor-label"><strong>11</strong>am</span>
+					<span class="hor-label"><strong>12</strong>pm</span>
+					<span class="hor-label"><strong>1</strong>pm</span>
+				</div>
+				
+			</div>
+		</div>
+		<span id="chat" class="prio"><span class="material-symbols-rounded" style="position:relative; left:20px; top:20px; font-size: 40px; color: #C2BAEB8F">
+			live_help
+		</span></span>
+
+		<div id="bluetooth-panel" class="inactive" style="z-index:9999999999"><span id="bp-label">Saved Chips</span>
+			<br><br><div class="patch active-patch"><span class="material-symbols-rounded">
+				deployed_code
+			</span>Home<em>HP EZ103D34</em></div>
+			<div class="patch"><span class="material-symbols-rounded">
+				deployed_code
+				<span class="batt" style="top:-50px;left:165px"><span class="material-symbols-outlined" style="font-size: 18px">battery_4_bar</span>70%</span>
+			</span>Work<em>HP PW249X11</em></div>
+			<div class="patch"><span class="material-symbols-outlined">
+				deployed_code
+				<span class="batt" style="top:-2px;left:180px"><span class="material-symbols-outlined" style="font-size: 18px">battery_3_bar</span>60%</span>
+			</span>Jim's Patch<em>HP OL112V39</em><span class="batt" style="top:-35px;left:150px"><span class="material-symbols-outlined" style="font-size: 20px">battery_2_bar</span>40%</span></div>
+			
+			<div id="bp-info"><span class="material-symbols-outlined" style="position:relative; font-size: 18px; padding: 5px; top: 3px">info</span>Several chips can be saved, but only one chip can be active at once.</div>
+			<div id="bp-link" onclick="swap('chipreg');chipregmode(false)">link new chip</div>
+		</div>
+	</div>
+	
+
+	<div id="login" class="active"><h2>Let's sign you in.</h2><h4>Welcome back!</h4>
+		<label for="inp" class="inp">
+			<input type="text" id="inp" placeholder="&nbsp;">
+			<span class="label">Email</span>
+			<span class="focus-bg"></span>
+		</label>
+		<br><br>
+		<label for="inp2" class="inp2">
+			<input type="password" id="inp2" placeholder="&nbsp;">
+			<span class="label">Password</span>
+			<span class="focus-bg"></span>
+		</label>
+		<br><br>
+		<div id="continue" style="font-size: 25px">Sign in with</div>
+		<div id="continue_goog" style="background-color: #C53C1C;
+		padding: 12px 13.5px;
+		width: 27px;
+		border-radius: 15px;cursor:pointer" onclick="swap('home')"><i class="fa-brands fa-google"></i></div>
+		<div id="continue_fb" style="background-color: #1E70E0;
+		padding: 12px 13.5px;
+		width: 27px;
+		border-radius: 15px; position: relative; left: 80px; top: -55px;cursor: pointer" onclick="swap('home')"><i class="fa-brands fa-facebook"></i></div>
+		<div id="continue_apple" style="background-color: #1B1C1E;
+		padding: 12px 13.5px;
+		width: 27px;
+		border-radius: 15px;position: relative; left: 165px; top: -110px;cursor: pointer" onclick="swap('home')"><i class="fa-brands fa-apple"></i></div>
+
+		<div id="cont-btn" onclick="swap('chipreg');chipregmode(true)">Continue</div>
+		<div id="signup">Need an account? <a>Sign up</a></div>
+	</div>
+
+
+
+
+	<div id="chipreg" class="inactive"><br><br>Link a Chip
+		<br><br><div id="cr-desc">Tap the patch three times to connect via Bluetooth to permanently save it to your device.<br><br>Future connections will simply require activating the patch's Bluetooth mode to sync.</div>
+
+		<span style="position:relative; top:50px; left:50px">
+			<span class="material-symbols-rounded" style="padding-right: 20px; font-size: 50px">phone_android</span>
+			<span class="material-symbols-outlined" style="rotate: 45deg; font-size: 35px; padding-right: 20px">rss_feed</span>
+			<span class="material-symbols-rounded" style="font-size: 50px">deployed_code</span>
+		</span>
+
+		<div id="connected" onclick="swap('home')" style="position:relative;top:195px;left:15px"><span class="material-symbols-outlined">bluetooth_searching</span><em>HP EZ103D34</em></div>
+
+		<div id="return" onclick="swap('home')"><span class="material-symbols-outlined">arrow_back_ios</span></div>
+		<div id="unconnected" style="position:relative;top:128px;left:15px"><span class="material-symbols-outlined">bluetooth_disabled</span><em>Searching...</em></div></div>
+
+
+
+		<div id="droplet" class="inactive"><div id="dr-title"><span class="material-symbols-outlined">package</span>Droplet</div>
+		<div class="burger" onclick="reveal('menu-panel')"><span class="material-symbols-outlined" style="font-size: 24px">
+			menu
+		</span></div>
+		<div id="dr-desc" style="left:-10px; position:relative;font-family:Gilroy-Light; font-size: 18px"><br>Simply sign up once, and you or a loved one can rest easy knowing their hydration needs are always met.</div>
+
+		<div id="monthly">Monthly
+			<br>
+			<em><span class="material-symbols-outlined">deployed_code</span>15 patches/mo</em><br>
+			<em><span class="material-symbols-outlined">support_agent</span>24/7 live support</em><br>
+			<em><span class="material-symbols-outlined">local_shipping</span>Overnight chip replacements</em>
+			<h3>$24.99</h3>
+		</div>
+
+		<div id="trimonthly">Trimonthly
+			<br>
+			<em><span class="material-symbols-outlined">deployed_code</span>50 patches + 1 chip/3 mo</em><br>
+			<em><span class="material-symbols-outlined">support_agent</span>24/7 live support</em><br>
+			<em><span class="material-symbols-outlined">local_shipping</span>Overnight chip replacements</em>
+			<h3>$99.99</h3>
+		</div>
+	</div>
+	<div id="notifs" class="inactive"><div style="position:relative; left:50px">Notifications</div><div class="burger" onclick="reveal('menu-panel')"><span class="material-symbols-outlined" style="font-size: 24px">
+		menu
+	</span></div><br>
+	<div class="notif"><span class="notif-time">6/20/23, 9:42 PM</span><br><span class="material-symbols-rounded">receipt_long</span>Synced data from your hydropatch HP EZ103D34 to Ana's iPhone.</div>
+	<div class="notif urgent"><span class="notif-time">6/20/23, 3:03 PM</span><br><span class="material-symbols-rounded">crisis_alert</span>Jim Jubreck called for emergency assistance.</div>
+	<div class="notif"><span class="notif-time">6/20/23, 12:11 PM</span><br><span class="material-symbols-rounded">opacity</span>Your hydration level went below 80%. Try to get into a hydration routine!
+	</div>
+	<div class="notif"><span class="notif-time">6/20/23, 7:49 AM</span><br><span class="material-symbols-rounded">receipt_long</span>Your daily log was started.
+
+	</div>
+</div>
+
+<script>
+	function nerfdragging() {
+		var all = document.all;
+		for (let i = 0; i < all.length; i++) {
+			all[i].setAttribute('draggable', false);
+		}
+	}
+	
+	function reveal() {
+		for (let i = 0; i < arguments.length; i++) {
+			document.getElementById(arguments[i]).classList.remove("inactive");
+			document.getElementById(arguments[i]).classList.add("active");
+
+		}
+
+		var unfocus = document.getElementById("unfocus");
+		unfocus.classList.remove("inactive");
+	}
+
+	function hide() {
+		for (let i = 0; i < arguments.length; i++) {
+			document.getElementById(arguments[i]).classList.add("inactive");
+			document.getElementById(arguments[i]).classList.remove("active");
+		}
+
+		var unfocus = document.getElementById("unfocus");
+		unfocus.classList.add("inactive");
+	}
+
+	function clearLogin() {
+		setTimeout(function() {
+			document.getElementById("inp").value = "";
+		document.getElementById("inp2").value = "";
+		}, 600);
+	}
+
+	function chipregmode(isFromLogin) {
+		var conBtn = document.getElementById("connected");
+		var unconBtn = document.getElementById("unconnected");
+		var returnBtn = document.getElementById("return");
+
+		if (isFromLogin) {
+			conBtn.classList.add("active");
+			conBtn.classList.remove("inactive");
+
+			unconBtn.classList.add("inactive");
+			unconBtn.classList.remove("active");
+
+			returnBtn.classList.add("inactive");
+			returnBtn.classList.remove("active");
+		}
+		else {
+			conBtn.classList.add("inactive");
+			conBtn.classList.remove("active");
+
+			unconBtn.classList.add("active");
+			unconBtn.classList.remove("inactive");
+
+			returnBtn.classList.add("active");
+			returnBtn.classList.remove("inactive");
+		}
+	}
+
+	function swap(pane) {
+		var actives = document.getElementsByClassName("active");
+		for (let i = 0; i < actives.length; i++) {
+			hide(actives[i].id);
+		}
+
+		hide('menu-panel', 'bluetooth-panel') // a BS solution
+
+		if (!(pane === "chipreg")) hide("chipreg"); // another BS solution
+		if (!(pane === "login")) {
+			hide("login"); // yet another BS solution
+			clearLogin();
+		}
+
+		reveal(pane);
+		hide("unfocus");
+	}
+</script>
+
+</body>
+
+</html>
